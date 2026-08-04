@@ -1,0 +1,6 @@
+  // we can use "type": "module" in package.json to use ES6 modules in Node.js. This allows us to use import and export statements instead of require and module.exports.
+type:module in package.json
+
+gitignore generator for the nodemodule,envs 
+
+Nodemon -- If you want server again and again u need automation so u use nodemon
