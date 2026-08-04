@@ -1,0 +1,19 @@
+{
+  "name": "fullstack",
+  "version": "1.0.0",
+  "description": "Full stack project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prajwal-SM-2005/Full-Stack.git"
+  },
+  "author": "Prajwal SM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Prajwal-SM-2005/Full-Stack/issues"
+  },
+  "homepage": "https://github.com/Prajwal-SM-2005/Full-Stack#readme"
+}
