@@ -12,14 +12,15 @@ const startServer = async () => {
      try {
         await connectDB(); // Connect to the database
 
-        app.on("error", (error) => {
-            throw(error);
-            // console.error("Error starting the server:", err);
-            // process.exit(1); // Exit the process with an error code
+        const port = process.env.PORT || 8000;
+
+        const server = app.listen(port, () => {
+            console.log(`Server is running on port ${port}`);
         });
 
-        app.listen(process.env.PORT||8000, () => {
-            console.log(`Server is running on port ${process.env.PORT}`);
+        server.on("error", (error) => {
+            console.error("Server error:", error);
+            process.exit(1); // Exit the process with an error code
         });
         }catch(error){
             console.log("MongoDB connection failed. Server not started.");
