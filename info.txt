@@ -4,3 +4,5 @@ type:module in package.json
 gitignore generator for the nodemodule,envs 
 
 Nodemon -- If you want server again and again u need automation so u use nodemon
+
+Routes are like addresses so when ever somebody request for something , path kind off
