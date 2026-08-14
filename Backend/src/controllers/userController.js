@@ -27,4 +27,21 @@ const registerUser = async (req, res) => {
     }
 };
 
-export { registerUser }; //Exporting the registerUser function allows us to use it in other parts of our application, such as in the userRoute.js file where we can define a route for user registration. This modular approach helps keep our code organized and maintainable.
+const loginUser = async (req, res) => {
+    try {
+        const { email, password } = req.body; //Destructuring the request body to extract the email and password fields. This allows us to easily access the data sent by the client when attempting to log in.
+        const user = await User.findOne({ email: email.toLowerCase() }); //Finding the user in the database with the provided email.
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        const isMatch = await bcrypt.compare(password, user.password); //Comparing the provided password with the hashed password stored in the database.
+        if (!isMatch) {
+            return res.status(401).json({ message: "Invalid credentials" });
+        }
+        res.status(200).json({ message: "Login successful", user });
+    } catch (error) {
+        res.status(500).json({ message: "Error logging in" });
+    }
+};
+
+export { registerUser, loginUser }; //Exporting both functions allows us to use them in other parts of our application, such as in the userRoute.js file where we can define routes for user registration and login. This modular approach helps keep our code organized and maintainable.

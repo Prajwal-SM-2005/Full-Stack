@@ -4,10 +4,9 @@
 
 //userModel.js -->Authentication
 //post --> creat that is posted on the website
-import mongoose,{schema} from "mongoose";
-
-const userSchema = new Schema(
-    {
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+const userSchema = new mongoose.Schema(    {
         username:{
         type:String,
         required:true,
@@ -39,6 +38,7 @@ const userSchema = new Schema(
     {
         timestamps:true, // Automatically adds createdAt and updatedAt fields to the schema
     }
-
 )
+//decrypt --bcrypt the pass
+
 export const User = mongoose.model("User",userSchema) //user Model --> model is the representation of a collection in the database, and it allows you to perform CRUD (Create, Read, Update, Delete) operations on the documents within that collection. Models are essential for interacting with the database in a structured and organized manner, ensuring data integrity and consistency.
